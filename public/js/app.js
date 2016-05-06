@@ -92,21 +92,15 @@ render : function() {
         firstView = <div>
       <div style={navi} className="navi">
 
+        <section className="col s12">
         <div>
             {this.state.loggedIn ? (
-              <div>
+              <div >
                 <div style={navElement}><Link to="/logout">Log out</Link> </div>
                 <div style={navElement}><Link to="/create">Create Your Plantee</Link></div>
-
+                {/*<Create> <Veri/> </Create>*/}
              </div>
-            )
-
-
-            :
-
-
-
-            (
+            ) : (
               <div >
                 <div style={navElement}><Link to="/login">Log In</Link></div>
                 <div style={navElement}><Link to="/signup">Sign up</Link></div>
@@ -114,6 +108,7 @@ render : function() {
             )}
         </div>
         {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
+        </section>
         </div>
         <div style={frontImages}>
            <Header details="Hi, I'm Plantee"/>
