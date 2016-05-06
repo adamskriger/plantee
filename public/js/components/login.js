@@ -39,8 +39,8 @@ const Login = React.createClass({
   render : function() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label><input ref="email" placeholder="email" /></label>
-        <label><input ref="pass" placeholder="password" /></label> <br />
+        <label className="mobileInput"><input ref="email" placeholder="email" /></label>
+        <label className="mobileInput"><input ref="pass" placeholder="password" /></label> <br />
         <button type="submit" value="login">login</button>
         {this.state.error && (
           <p>Bad login information</p>

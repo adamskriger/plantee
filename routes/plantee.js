@@ -23,10 +23,14 @@ plantee.route('/gardeners')
 	.get(db.getAllGardeners, (req, res) => {
 		res.send(res.rows);
 	})
-	// Adds a new gardener to the plantee table as well as the plantee xref table 
+	// Adds a new gardener to the plantee table as well as the plantee xref table
 	.post(db.addGardener, (req, res) => {
 		res.json(res.rows);
 	})
+
+
+	/* gardeners route */
+
 
 plantee.route('/:id/messages')
 	.get(db.selectPlanteeMessages, (req, res) => {
@@ -47,8 +51,8 @@ plantee.get('/initiatePlanteeGrow', db.startCron, (req, res) => {
 
 function codePass(req, res, next) {
 	let name = req.query.name;
-	let num = req.query.num; 
-	twilio.verifyPhone(name, num, next, req); 
+	let num = req.query.num;
+	twilio.verifyPhone(name, num, next, req);
 }
 
-module.exports = plantee; 
+module.exports = plantee;

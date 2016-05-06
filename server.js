@@ -25,12 +25,18 @@ const planteeRoutes = require('./routes/plantee');
 /* PG: Used for CronJob */
 const pg = require('pg');
 const cs = `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@localhost/project3`;
+const jsdom = require("jsdom");
+const $ = require('jquery');
+
 
 /* TWILIO API AUTHENTICATION */
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
 /* CLIENT: Require the Twilio module and create a REST client */
 const client = require('twilio')(accountSid, authToken);
+
+
+
 
 /* EXPRESS APP INITIALIZATION */
 const app = express();
@@ -44,9 +50,20 @@ app.use('/users', usersRoutes);
 app.use('/plantee', planteeRoutes);
 
 /* HOME ROUTE */
-app.get('/', (req, res)=>{
-  res.sendFile('index.html')
-});
+  app.get('/', (req, res)=>{
+    res.sendFile('index.html')
+  })
+
+  /* MOBILE ROUTE */
+  app.get('mobile', (req, res)=>{
+    res.sendFile('mobile.html')
+  })
+
+
+
+
+
+
 
 // app.get('*', (req, res)=>{
 //   res.render('index.html')
